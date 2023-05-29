@@ -80,6 +80,114 @@ This is a documentation for a Restaurant Management System that includes tables,
 - **Output**: Confirmation message indicating successful deletion.
 - **Exceptions**: Raises an error if the employee with the
 
+### `add_menu_item`
+
+- **Description**: This procedure adds a new menu item to the Menu_Items table with the provided item details.
+- **Input**:
+  - `p_item_id`: The ID of the menu item (Menu_Items.item_id%TYPE).
+  - `p_item_name`: The name of the menu item (Menu_Items.item_name%TYPE).
+  - `p_item_description`: The description of the menu item (Menu_Items.item_description%TYPE).
+  - `p_price`: The price of the menu item (Menu_Items.price%TYPE).
+- **Output**: Confirmation message indicating successful addition of the menu item.
+- **Exceptions**:
+  - Raises an error if a menu item with the provided item ID already exists (DUP_VAL_ON_INDEX).
+  - Raises any other unhandled exceptions.
+
+### `update_menu_item`
+
+- **Description**: This procedure updates the details of a menu item in the Menu_Items table based on the provided item ID.
+- **Input**:
+  - `p_item_id`: The ID of the menu item to be updated (Menu_Items.item_id%TYPE).
+  - `p_item_name`: The updated name of the menu item (Menu_Items.item_name%TYPE).
+  - `p_item_description`: The updated description of the menu item (Menu_Items.item_description%TYPE).
+  - `p_price`: The updated price of the menu item (Menu_Items.price%TYPE).
+- **Output**: Confirmation message indicating successful update of the menu item.
+- **Exceptions**:
+  - Raises an error if the menu item with the provided item ID does not exist.
+  - Raises any other unhandled exceptions.
+
+### `delete_menu_item`
+
+- **Description**: This procedure deletes a menu item from the Menu_Items table based on the provided item ID.
+- **Input**:
+  - `p_item_id`: The ID of the menu item to be deleted (Menu_Items.item_id%TYPE).
+- **Output**: Confirmation message indicating successful deletion of the menu item.
+- **Exceptions**:
+  - Raises an error if the menu item with the provided item ID does not exist.
+  - Raises any other unhandled exceptions.
+
+### `add_order`
+
+- **Description**: This procedure adds a new order to the Orders table with the provided order details.
+- **Input**:
+  - `p_order_id`: The ID of the order (Orders.order_id%TYPE).
+  - `p_employee_id`: The ID of the employee associated with the order (Orders.employee_id%TYPE).
+  - `p_customer_id`: The ID of the customer who placed the order (Orders.customer_id%TYPE).
+  - `p_order_date`: The date of the order (Orders.order_date%TYPE).
+  - `p_total_amount`: The total amount of the order (Orders.total_amount%TYPE).
+- **Output**: Confirmation message indicating successful addition of the order.
+- **Exceptions**:
+  - Raises an error if an order with the provided order ID already exists (DUP_VAL_ON_INDEX).
+  - Raises any other unhandled exceptions.
+
+### `update_order`
+
+- **Description**: This procedure updates the details of an order in the Orders table based on the provided order ID.
+- **Input**:
+  - `p_order_id`: The ID of the order to be updated (Orders.order_id%TYPE).
+  - `p_employee_id`: The updated ID of the employee associated with the order (Orders.employee_id%TYPE).
+  - `p_customer_id`: The updated ID of the customer who placed the order (Orders.customer_id%TYPE).
+  - `p_order_date`: The updated date of the order (Orders.order_date%TYPE).
+  - `p_total_amount`: The updated total amount of the order (Orders.total_amount%TYPE).
+- **Output**: Confirmation message indicating successful update of the order.
+- **Exceptions**:
+  - Raises an error if the order with the provided order ID does not exist.
+  - Raises any other unhandled exceptions.
+
+### `delete_order`
+
+- **Description**: This procedure deletes an order from the Orders table based on the provided order ID.
+- **Input**:
+  - `p_order_id`: The ID of the order to be deleted (Orders.order_id%TYPE).
+- **Output**: Confirmation message indicating successful deletion of the order.
+- **Exceptions**:
+  - Raises an error if the order with the provided order ID does not exist.
+  - Raises any other unhandled exceptions.
+
+### `add_order_item`
+
+- **Description**: This procedure adds a new order item to the Order_Items table with the provided item details.
+- **Input**:
+  - `p_order_item_id`: The ID of the order item (Order_Items.order_item_id%TYPE).
+  - `p_order_id`: The ID of the order to which the item belongs (Order_Items.order_id%TYPE).
+  - `p_item_id`: The ID of the item being ordered (Order_Items.item_id%TYPE).
+  - `p_quantity`: The quantity of the item being ordered (Order_Items.quantity%TYPE).
+- **Output**: Confirmation message indicating successful addition of the order item.
+- **Exceptions**:
+  - Raises an error if an order item with the provided item ID already exists (DUP_VAL_ON_INDEX).
+  - Raises any other unhandled exceptions.
+
+### `update_order_item`
+
+- **Description**: This procedure updates the details of an order item in the Order_Items table based on the provided order item ID.
+- **Input**:
+  - `p_order_item_id`: The ID of the order item to be updated (Order_Items.order_item_id%TYPE).
+  - `p_order_id`: The updated ID of the order to which the item belongs (Order_Items.order_id%TYPE).
+  - `p_item_id`: The updated ID of the item being ordered (Order_Items.item_id%TYPE).
+  - `p_quantity`: The updated quantity of the item
+
+### `delete_order_item`
+
+- **Description**: This procedure deletes an order item from the Order_Items table based on the provided order item ID.
+- **Input**:
+  - `p_order_item_id`: The ID of the order item to be deleted (Order_Items.order_item_id%TYPE).
+- **Output**: Confirmation message indicating successful deletion of the order item.
+- **Exceptions**:
+  - Raises an error if the order item with the provided order item ID does not exist.
+  - Raises any other unhandled exceptions.
+
+## Functions
+
 ### `calculate_yearly_salary`
 
 - **Description**: This function calculates the yearly salary for an employee based on their monthly salary.
