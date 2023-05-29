@@ -1,0 +1,25 @@
+Requirements:
+A set of tables storing information about customers, employees, orders (with details) and items in menu that can be modified and replaced.
+There should be a possibility to sum the revenue from a given period (week, month, year etc.), get yearly salary for the employees, overall and average spendings of a customer,
+display the least and most frequently ordered menu item.
+
+
+Tables:
+1. Customers - stores data about restaurant's customers
+2. Orders - stores data about each order, agents involved, total price (ORDER SUMMARY)
+3. Order items - helper table to Orders, stores data about individual items in orders (ORDER DETAIL)
+4. Menu items - stores data about items customers can order as well as their description and price
+5. Employees - stores data about all employees
+
+
+Procedures:
+Procedures for adding data to each table, some values such as Orders.total_amount calculated automatically,
+procedures for editing and deleting data
+A procedure to replace a menu item from Menu items with a new one
+A procedure to return most and least frequently ordered menu item
+
+Functions:
+1. Calculate monthly/yearly revenue based on orders from Orders table
+2. Calculate yearly salary for an employee
+3. Calculate all spendings made by a customer based on Orders
+4. Calculate average order amount for a customer
