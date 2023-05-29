@@ -1,3 +1,11 @@
+CREATE TABLE Customers (
+  customer_id NUMBER(10) PRIMARY KEY,
+  first_name VARCHAR2(50),
+  last_name VARCHAR2(50),
+  email VARCHAR2(100),
+  phone VARCHAR2(20)
+);
+
 CREATE TABLE Employees (
   employee_id NUMBER(10) PRIMARY KEY,
   first_name VARCHAR2(50),
