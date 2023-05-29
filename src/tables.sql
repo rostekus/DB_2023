@@ -1,3 +1,5 @@
+-- TABLES DEF
+
 CREATE TABLE Customers (
   customer_id NUMBER(10) PRIMARY KEY,
   first_name VARCHAR2(50),
