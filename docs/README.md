@@ -185,6 +185,45 @@ This is a documentation for a Restaurant Management System that includes tables,
 - **Exceptions**:
   - Raises an error if the order item with the provided order item ID does not exist.
   - Raises any other unhandled exceptions.
+ 
+### `add_customer`
+
+- **Description**: This procedure adds a new customer to the Customers table.
+- **Input**:
+  - `p_customer_id` (Customers.customer_id%TYPE): The customer ID of the new customer.
+  - `p_first_name` (Customers.first_name%TYPE): The first name of the new customer.
+  - `p_last_name` (Customers.last_name%TYPE): The last name of the new customer.
+  - `p_email` (Customers.email%TYPE): The email address of the new customer.
+  - `p_phone` (Customers.phone%TYPE): The phone number of the new customer.
+- **Output**: Confirmation message indicating successful addition.
+- **Exceptions**:
+  - Raises an error with error code -20013 and a custom error message if a customer with the same ID already exists.
+  - Reraises any other exceptions for further handling at a higher level.
+
+### `update_customer`
+
+- **Description**: This procedure updates an existing customer in the Customers table.
+- **Input**:
+  - `p_customer_id` (Customers.customer_id%TYPE): The customer ID of the customer to be updated.
+  - `p_first_name` (Customers.first_name%TYPE): The updated first name of the customer.
+  - `p_last_name` (Customers.last_name%TYPE): The updated last name of the customer.
+  - `p_email` (Customers.email%TYPE): The updated email address of the customer.
+  - `p_phone` (Customers.phone%TYPE): The updated phone number of the customer.
+- **Output**: Confirmation message indicating successful update.
+- **Exceptions**:
+  - Raises an error with error code -20014 and a custom error message if the customer with the specified ID does not exist.
+  - Reraises any other exceptions for further handling at a higher level.
+
+### `delete_customer`
+
+- **Description**: This procedure deletes an existing customer from the Customers table.
+- **Input**:
+  - `p_customer_id` (Customers.customer_id%TYPE): The customer ID of the customer to be deleted.
+- **Output**: Confirmation message indicating successful deletion.
+- **Exceptions**:
+  - Raises an error with error code -20015 and a custom error message if the customer with the specified ID does not exist.
+  - Reraises any other exceptions for further handling at a higher level.
+
 
 ## Functions
 
