@@ -10,10 +10,10 @@ VALUES (2, 'Jane', 'Doe', 'janedoe@example.com', '555-5678');
 
 -- Insert sample data into the Orders table
 INSERT INTO Orders (order_id, customer_id, order_date, total_amount)
-VALUES (1, 1, 2, '2022-05-09', 25.50);
+VALUES (1, 2, '2022-05-09', 25.50);
 
 INSERT INTO Orders (order_id, customer_id, order_date, total_amount)
-VALUES (2, 2, 1, '2022-05-08', 35.75);
+VALUES (2, 1, '2022-05-08', 35.75);
 
 -- Insert sample data into the Menu Items table
 INSERT INTO Menu_Items (item_id, item_name, item_description, price)

@@ -333,3 +333,66 @@ BEGIN
 	RAISE; -- Reraise the exception for further handling at a higher level
 END;
 
+-- PROCEDURE TO ADD A CUSTOMER
+CREATE OR REPLACE PROCEDURE add_customer(
+  p_customer_id IN Customers.customer_id%TYPE,
+  p_first_name IN Customers.first_name%TYPE,
+  p_last_name IN Customers.last_name%TYPE,
+  p_email IN Customers.email%TYPE,
+  p_phone IN Customers.phone%TYPE
+) IS
+BEGIN
+  INSERT INTO Customers (customer_id, first_name, last_name, email, phone)
+  VALUES (p_customer_id, p_first_name, p_last_name, p_email, p_phone);
+  
+  DBMS_OUTPUT.PUT_LINE('Customer added successfully.');
+EXCEPTION
+  WHEN DUP_VAL_ON_INDEX THEN
+    RAISE_APPLICATION_ERROR(-20013, 'Customer with ID ' || p_customer_id || ' already exists.');
+  WHEN OTHERS THEN
+    RAISE; -- Reraise the exception for further handling at a higher level
+END;
+
+-- PROCEDURE TO UPDATE A CUSTOMER
+CREATE OR REPLACE PROCEDURE update_customer(
+  p_customer_id IN Customers.customer_id%TYPE,
+  p_first_name IN Customers.first_name%TYPE,
+  p_last_name IN Customers.last_name%TYPE,
+  p_email IN Customers.email%TYPE,
+  p_phone IN Customers.phone%TYPE
+) IS
+BEGIN
+  UPDATE Customers
+  SET first_name = p_first_name,
+      last_name = p_last_name,
+      email = p_email,
+      phone = p_phone
+  WHERE customer_id = p_customer_id;
+  
+  IF SQL%ROWCOUNT = 0 THEN
+    RAISE_APPLICATION_ERROR(-20014, 'Customer with ID ' || p_customer_id || ' does not exist.');
+  ELSE
+    DBMS_OUTPUT.PUT_LINE('Customer updated successfully.');
+  END IF;
+EXCEPTION
+  WHEN OTHERS THEN
+    RAISE; -- Reraise the exception for further handling at a higher level
+END;
+
+-- PROCEDURE TO DELETE A CUSTOMER
+CREATE OR REPLACE PROCEDURE delete_customer(
+  p_customer_id IN Customers.customer_id%TYPE
+) IS
+BEGIN
+  DELETE FROM Customers
+  WHERE customer_id = p_customer_id;
+  
+  IF SQL%ROWCOUNT = 0 THEN
+    RAISE_APPLICATION_ERROR(-20015, 'Customer with ID ' || p_customer_id || ' does not exist.');
+  ELSE
+    DBMS_OUTPUT.PUT_LINE('Customer deleted successfully.');
+  END IF;
+EXCEPTION
+  WHEN OTHERS THEN
+    RAISE; -- Reraise the exception for further handling at a higher level
+END;
